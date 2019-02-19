@@ -2,7 +2,7 @@ import json
 from cipher.fileio import read
 
 
-class Config:
+class Credentials:
 
     def __init__(self, path, passwd):
         conf = read(path, passwd)
