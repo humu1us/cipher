@@ -5,10 +5,8 @@ def read(path, passwd):
     with open(path, mode="rt") as fd:
         data = fd.read()
 
-    if not data:
-        return None
-
-    return cipher.decrypt(passwd, data)
+    dec = cipher.decrypt(passwd, data)
+    return dec
 
 
 def write(path, passwd, data):
