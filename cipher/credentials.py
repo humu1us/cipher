@@ -5,7 +5,6 @@ from cipher.fileio import read
 class Credentials:
 
     def __init__(self, path, passwd):
-        passwd = passwd.strip()
         conf = read(path, passwd)
 
         if not conf:
