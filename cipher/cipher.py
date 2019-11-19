@@ -4,7 +4,7 @@ from Crypto.Cipher import AES
 import cipher.core.pkcs7 as pkcs7
 from cipher.core.derivation import derive_password
 
-HEADER = b"_GV_ENC_"
+HEADER = b"_humu1us_enc__"
 
 
 def check_header(raw):
