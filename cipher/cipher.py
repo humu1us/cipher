@@ -12,7 +12,6 @@ def check_header(raw):
 
 
 def encrypt(passwd, text):
-    passwd = passwd.strip()
     padded = pkcs7.pad(text)
     salt = os.urandom(8)
     key, iv = derive_password(passwd, salt)
@@ -23,7 +22,6 @@ def encrypt(passwd, text):
 
 
 def decrypt(passwd, encrypted):
-    passwd = passwd.strip()
     raw = base64.b64decode(base64.b64decode(encrypted))
     if not check_header(raw):
         raise RuntimeError("Missing header, cannot decrypt")
