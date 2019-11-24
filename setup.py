@@ -28,17 +28,17 @@ def get_requirements(file_name):
 
 
 setup(
-    name='govision-cipher',
+    name='cipher',
 
     version=find_version('cipher', '__init__.py'),
 
     description='Encryption/decryption library',
     long_description=read('README.rst'),
 
-    url='https://bitbucket.org/govisioncl/cipher',
+    url='https://github.com/humu1us/cipher',
 
-    author='Felipe Ortiz',
-    author_email='fortizc@gmail.com',
+    author='Felipe Ortiz, Pablo Ahumada',
+    author_email='fortizc@gmail.com, pablo.ahumadadiaz@gmail.com',
 
     license='',
 
