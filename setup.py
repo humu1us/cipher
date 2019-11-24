@@ -40,7 +40,7 @@ setup(
     author='Felipe Ortiz, Pablo Ahumada',
     author_email='fortizc@gmail.com, pablo.ahumadadiaz@gmail.com',
 
-    license='',
+    license='MIT',
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
