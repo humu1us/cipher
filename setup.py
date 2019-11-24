@@ -1,5 +1,6 @@
-import os
 import codecs
+import os
+import re
 from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
@@ -10,9 +11,15 @@ def read(*folders):
         return fd.read()
 
 
-def find_version():
-    with open("VERSION", "r") as fd:
-        return fd.read().rstrip()
+def find_version(*file_paths):
+    version_file = read(*file_paths)
+    version_match = re.search(r"^__version__ = ['\"]([^'\"]*)['\"]",
+                              version_file,
+                              re.M)
+    if version_match:
+        return version_match.group(1)
+
+    raise RuntimeError("ERROR: version not found")
 
 
 def get_requirements(file_name):
@@ -20,15 +27,13 @@ def get_requirements(file_name):
     return requires_file.splitlines()
 
 
-long_description = read('README.rst')
-
 setup(
     name='govision-cipher',
 
-    version=find_version(),
+    version=find_version('cipher', '__init__.py'),
 
     description='Encryption/decryption library',
-    long_description=long_description,
+    long_description=read('README.rst'),
 
     url='https://bitbucket.org/govisioncl/cipher',
 
