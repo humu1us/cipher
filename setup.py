@@ -59,4 +59,5 @@ setup(
     extras_require={},
     package_data={},
     data_files=[],
+    entry_points={'console_scripts': ['ciphercmd = cipher.cli.ciphercmd:main']}
 )
