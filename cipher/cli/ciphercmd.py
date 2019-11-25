@@ -83,18 +83,27 @@ def read_path(path):
         return fd.read()
 
 
-def encrypt(fname, key_path, out):
-    key = read_path(key_path)
-    txt = read_path(fname)
-    cipher.write(out, key, txt)
+def encrypt(to_proc, key, is_file, out=None):
+    if is_file:
+        to_proc = read_path(to_proc)
+
+    if out:
+        cipher.write(out, key, to_proc)
+    else:
+        print(cipher.encrypt(key, to_proc))
 
 
-def decrypt(fname, key_path, out):
-    key = read_path(key_path)
-    txt = cipher.read(fname, key)
+def decrypt(to_proc, key, is_file, out=None):
+    if is_file:
+        txt = cipher.read(to_proc, key)
+    else:
+        txt = cipher.decrypt(key, to_proc)
 
-    with open(out, "w") as fd:
-        fd.write(txt)
+    if out:
+        with open(out, "w") as fd:
+            fd.write(txt)
+    else:
+        print(txt)
 
 
 def main():
