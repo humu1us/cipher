@@ -83,6 +83,16 @@ def read_path(path):
         return fd.read()
 
 
+def get_str(string, path, var, read_file=False):
+    if string:
+        return string
+    if path and os.path.isfile(path):
+        return read_path(path) if read_file else path
+
+    print("%s not found: %s" % (var, path))
+    sys.exit(1)
+
+
 def encrypt(to_proc, key, is_file, out=None):
     if is_file:
         to_proc = read_path(to_proc)
