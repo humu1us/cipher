@@ -118,19 +118,15 @@ def decrypt(to_proc, key, is_file, out=None):
 
 def main():
     parser = parse_args()
+    if len(sys.argv) == 1:
+        parser.print_help(sys.stderr)
+        sys.exit(1)
     args = parser.parse_args()
 
-    if args.enc and args.dec:
-        print("Error, encrypt and decrypt flags are exclusives")
-        parser.print_help()
+    to_proc = get_str(args.input, args.file, "FILE")
+    key = get_str(args.key_str, args.key_file, "KEY_FILE", True)
 
-    if args.enc:
-        encrypt(args.file, args.key, args.out)
-    elif args.dec:
-        decrypt(args.file, args.key, args.out)
-    else:
-        print("Need an action ('--encrypt' or '--decrypt')")
-        parser.print_help()
+    args.func(to_proc, key, not args.input, args.output)
 
 
 if __name__ == "__main__":
