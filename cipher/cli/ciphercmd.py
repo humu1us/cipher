@@ -16,14 +16,14 @@ def parse_args():
                            description="encrypt",
                            help="encryption mode")
     encr.set_defaults(func=encrypt)
-    encr_gin = encr.add_mutually_exclusive_group(required=True)
-    encr_gkey = encr.add_mutually_exclusive_group(required=True)
+    encr_gin = encr.add_mutually_exclusive_group()
+    encr_gkey = encr.add_mutually_exclusive_group()
     decr = mode.add_parser("decrypt",
                            description="decrypt",
                            help="decryption mode")
     decr.set_defaults(func=decrypt)
-    decr_gin = decr.add_mutually_exclusive_group(required=True)
-    decr_gkey = decr.add_mutually_exclusive_group(required=True)
+    decr_gin = decr.add_mutually_exclusive_group()
+    decr_gkey = decr.add_mutually_exclusive_group()
     optional_args = [
         {
             "args": ("-i",),
