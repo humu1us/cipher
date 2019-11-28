@@ -7,7 +7,7 @@ KEY_FILE_DEFAULT = os.path.join(os.path.expanduser("~"), ".cipher_key")
 
 
 def parse_args():
-    description = "ciphercmd: encryption and decryption tool"
+    description = "encryption and decryption tool"
     parser = argparse.ArgumentParser(description=description)
     parser.add_argument("-v",
                         "--version",
@@ -122,7 +122,7 @@ def encrypt(to_proc, key, is_file, out=None):
     if out:
         cipher.write(out, key, to_proc)
     else:
-        print(cipher.encrypt(key, to_proc))
+        sys.stdout.write(cipher.encrypt(key, to_proc))
 
 
 def decrypt(to_proc, key, is_file, out=None):
@@ -135,7 +135,7 @@ def decrypt(to_proc, key, is_file, out=None):
         with open(out, "w") as fd:
             fd.write(txt)
     else:
-        print(txt)
+        sys.stdout.write(txt)
 
 
 def main():
