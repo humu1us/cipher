@@ -3,6 +3,8 @@ import os
 import sys
 import cipher
 
+KEY_FILE_DEFAULT = os.path.join(os.path.expanduser("~"), ".cipher_key")
+
 
 def parse_args():
     description = "ciphercmd: encryption and decryption tool"
@@ -41,7 +43,7 @@ def parse_args():
             "args": ("-k",),
             "kwargs": {
                 "dest": "key_file",
-                "help": "file with the key to %s"
+                "help": "file with the key to %s, default: ~/.cipher_key"
             }
         }, {
             "args": ("-s",),
