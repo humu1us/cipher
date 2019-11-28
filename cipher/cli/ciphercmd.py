@@ -31,6 +31,7 @@ def parse_args():
             "args": ("-i",),
             "kwargs": {
                 "dest": "input",
+                "nargs": "?",
                 "help": "input to %s"
             }
         }, {
@@ -85,13 +86,32 @@ def read_path(path):
         return fd.read()
 
 
-def get_str(string, path, var, read_file=False):
-    if string:
-        return string
-    if path and os.path.isfile(path):
-        return read_path(path) if read_file else path
+def get_input(text, path):
+    if text:
+        return text
+    if not sys.stdin.isatty():
+        if not path:
+            return sys.stdin.read().rstrip()
+        else:
+            print("ciphercmd error: argument -i: not allowed with argument -f")
+            sys.exit(1)
+    if path:
+        return path
+    print("ciphercmd error: one of the arguments -i -f is required")
+    sys.exit(1)
 
-    print("%s not found: %s" % (var, path))
+
+def get_key(text, path):
+    if text:
+        return text
+    if path:
+        if os.path.isfile(path):
+            return read_path(path)
+        else:
+            print("ciphercmd error: key file not found: %s" % path)
+    if os.path.isfile(KEY_FILE_DEFAULT):
+        return read_path(KEY_FILE_DEFAULT)
+    print("ciphercmd error: one of the arguments -k -s is required")
     sys.exit(1)
 
 
@@ -125,10 +145,10 @@ def main():
         sys.exit(1)
     args = parser.parse_args()
 
-    to_proc = get_str(args.input, args.file, "FILE")
-    key = get_str(args.key_str, args.key_file, "KEY_FILE", True)
+    to_proc = get_input(args.input, args.file)
+    key = get_key(args.key_str, args.key_file)
 
-    args.func(to_proc, key, not args.input, args.output)
+    args.func(to_proc, key, not not args.file, args.output)
 
 
 if __name__ == "__main__":
