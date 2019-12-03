@@ -91,7 +91,7 @@ def get_input(text, path):
         return text
     if not sys.stdin.isatty():
         if not path:
-            return sys.stdin.read().rstrip()
+            return sys.stdin.read()
         else:
             print("ciphercmd error: argument -i: not allowed with argument -f")
             sys.exit(1)
