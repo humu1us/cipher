@@ -8,7 +8,7 @@ HEADER = b"_humu1us_enc__"
 
 
 def check_header(raw):
-    return raw[:8] == HEADER
+    return raw[:14] == HEADER
 
 
 def encrypt(passwd, text):
@@ -26,9 +26,9 @@ def decrypt(passwd, encrypted):
     if not check_header(raw):
         raise RuntimeError("Missing header, cannot decrypt")
 
-    salt = raw[8:16]
+    salt = raw[14:22]
     key, iv = derive_password(passwd, salt)
-    encrypted = raw[16:]
+    encrypted = raw[22:]
 
     c = AES.new(key, AES.MODE_CBC, iv)
     text = pkcs7.unpad(c.decrypt(encrypted))
