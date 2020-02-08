@@ -63,7 +63,7 @@ There are a lot of ways to create keys but a good easy to use way to create non-
 
     dd if=/dev/urandom bs=16 count=1 | base64 > /path/to/key_file
 
-The ``bs`` parameter is used to set the number of bytes reading and writing by ``dd`` while ``count`` show how many times those bytes will be read
+The ``count`` parameter is the number of blocks to read and write, while the ``bs`` parameter is the size of each block.
 
 
 CLI
