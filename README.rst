@@ -57,7 +57,7 @@ Usage
 Generating keys
 +++++++++++++++
 
-There are a lot of ways to create keys but a good easy to use way to create non-easy to remember keys is using ``/dev/urandom ``, almost on Unix systems. For example:
+There are a lot of ways to create keys but a good easy to use way to create non-easy to remember keys is using ``/dev/urandom``, almost on Unix systems. For example:
 
 .. code::
 
