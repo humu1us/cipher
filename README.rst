@@ -1,6 +1,8 @@
 cipher
 ======
 
+|pypi| |pyversion|
+
 Encryption and decryption tools. Cipher mix AES encryption with base64 encode generating plain text encrypted files.
 
 Usage
@@ -92,3 +94,9 @@ Contribution
 ++++++++++++
 
 Contributions are welcome! Feel free to report bugs or open an issue if you feel a new feature is needed. Pull requests are welcome!
+
+
+.. |pypi| image:: https://img.shields.io/pypi/v/humu1us-cipher.svg?style=flat-square
+   :target: https://pypi.python.org/pypi/humu1us-cipher/
+.. |pyversion| image:: https://img.shields.io/pypi/pyversions/humu1us-cipher.svg?style=flat-square
+   :target: https://pypi.python.org/pypi/humu1us-cipher/
