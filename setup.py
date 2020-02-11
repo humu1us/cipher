@@ -28,7 +28,7 @@ def get_requirements(file_name):
 
 
 setup(
-    name='cipher',
+    name='humu1us-cipher',
 
     version=find_version('cipher', '__init__.py'),
 
@@ -43,7 +43,7 @@ setup(
     license='MIT',
 
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'Topic :: Software Development',
         'Topic :: System',
