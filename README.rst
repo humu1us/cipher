@@ -78,7 +78,7 @@ PyPi:
 
 ::
 
-    $ pip install cipher
+    $ pip install humu1us-cipher
 
 Development version:
 
