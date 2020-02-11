@@ -2,4 +2,5 @@
 .coverage
 .eggs
 dist/*
+build/*
 *egg-info
