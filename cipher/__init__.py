@@ -4,4 +4,4 @@ from cipher.fileio import read
 from cipher.fileio import write
 from cipher.credentials import Credentials
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
