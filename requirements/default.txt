@@ -1,1 +1,1 @@
-pycrypto>=2, <3
+pycryptodome>=3, <4
