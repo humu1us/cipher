@@ -12,7 +12,7 @@ def check_header(raw):
 
 
 def encrypt(passwd, text):
-    padded = pkcs7.pad(text)
+    padded = pkcs7.pad(text).encode()
     salt = os.urandom(8)
     key, iv = derive_password(passwd, salt)
     c = AES.new(key, AES.MODE_CBC, iv)
